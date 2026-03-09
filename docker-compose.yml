@@ -1,0 +1,29 @@
+services:
+  # ---- Backend API ----
+  api:
+    # Build from the Dockerfile in ./api
+    build:
+      context: ./Server
+      dockerfile: Dockerfile
+
+    ports:
+      - "8000:8000"
+    # Load environment variables from .env file
+    env_file:
+      - ./Server/.env
+    # Restart the container if it crashes
+    restart: unless-stopped
+
+  # ---- Frontend ----
+  frontend:
+    build:
+      context: ./Client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    # Don't start frontend until API is up
+    depends_on:
+      - api
+    restart: unless-stopped

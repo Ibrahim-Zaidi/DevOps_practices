@@ -1,0 +1,37 @@
+# Terraform
+terraform/.terraform
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/*.tfplan
+terraform/.terraform.lock.hcl
+terraform/.terraform/
+
+
+terraform/bootstrap/.terraform
+terraform/bootstrap/*.tfstate
+terraform/bootstrap/*.tfstate.backup
+terraform/bootstrap/*.tfplan
+terraform/bootstrap/.terraform.lock.hcl
+
+terraform/environments/dev/.terraform/  
+terraform/environments/dev/*.tfstate
+terraform/environments/dev/*.tfstate.backup
+terraform/environments/dev/*.tfplan
+terraform/environments/dev/.terraform.lock.hcl
+
+# Secrets — NEVER commit these
+Server/.env
+Client/.env
+k8s/secrets.yaml
+
+node_modules/
+dist/
+
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
