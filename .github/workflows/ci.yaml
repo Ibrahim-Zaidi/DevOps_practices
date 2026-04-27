@@ -6,7 +6,7 @@ on:
 
 jobs:
   # first job is run tests
-  test:
+  test-api:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,7 +22,9 @@ jobs:
       - name: Run tests
         run: pytest Server/test_main.py
 
-    # second jobd is building the app and pushign it to docker hub
+        # second job is building the app and pushing it to docker hub
+  test-client:
+
   build-and-push:
     runs-on: ubuntu-latest
     steps:

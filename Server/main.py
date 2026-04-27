@@ -1,8 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-import qrcode
-import boto3
+import qrcode 
+import boto3 
+import azure
 import os
 import traceback
 from io import BytesIO
@@ -70,9 +71,9 @@ async def generate_qr(url: str):
     # --- Upload to S3 or save locally ---
     if s3_client:
         try:
-            img_byte_arr = BytesIO()
+            img_byte_arr = BytesIO() 
             img.save(img_byte_arr, format='PNG') 
-            img_byte_arr.seek(0) 
+            img_byte_arr.seek(0)  
             s3_key = f"qr_codes/{file_name}" 
             s3_client.put_object(
                 Bucket=bucket_name,

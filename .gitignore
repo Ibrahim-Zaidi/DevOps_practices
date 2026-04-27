@@ -5,6 +5,8 @@ terraform/*.tfstate.backup
 terraform/*.tfplan
 terraform/.terraform.lock.hcl
 terraform/.terraform/
+*.tfvars
+*.tfvars.json
 
 
 terraform/bootstrap/.terraform
