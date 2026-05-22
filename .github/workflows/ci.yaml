@@ -24,6 +24,7 @@ jobs:
 
         # second job is building the app and pushing it to docker hub
   test-client:
+    runs-on: 
 
   build-and-push:
     runs-on: ubuntu-latest

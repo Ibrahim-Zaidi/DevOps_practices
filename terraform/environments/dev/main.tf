@@ -9,7 +9,7 @@ terraform {
   }
 }
 
-provider "azurerm" {
+provider "azurerm" { # this is a
   subscription_id = var.subscription_id
 
   features {
@@ -42,7 +42,7 @@ locals {
   }
 }
 
-// Modules
+// Modules 
 
 module "monitoring" {
   source              = "../../modules/monitoring" 
@@ -54,7 +54,7 @@ module "monitoring" {
 
 module "acr" {
   source              = "../../modules/acr"
-  resource_group_name = azurerm_resource_group.main.name
+  resource_group_name = azurerm_resource_group.main.name 
   location            = azurerm_resource_group.main.location
   environment         = var.environment
   tags                = local.common_tags

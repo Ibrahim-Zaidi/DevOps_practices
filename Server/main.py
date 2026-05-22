@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import qrcode 
 import boto3 
-import azure
+
 import os
 import traceback
 from io import BytesIO

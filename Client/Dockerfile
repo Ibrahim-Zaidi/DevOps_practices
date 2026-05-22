@@ -13,7 +13,7 @@ FROM node:18-alpine AS builder
 WORKDIR /app
 
 # Copy dependencies from the previous stage
-COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /app/node_modules ./node_modules 
 
 # Copy the rest of the source code
 COPY . .

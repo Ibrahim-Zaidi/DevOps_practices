@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+   name: fastapi-server
+   labels: 
+      app: fastapi-server
+      tier: backend
+spec: 
+   replicas: 2 
+   selector: 
+       matchLabels: 
+          app: fastapi-server 
+          tier: backend
+   template: #
+      metadata: 
+         labels: 
+            app: fastapi-server
+            tier: backend
+      spec: 
+         containers: 
+            - name: qr-fastapi
+              image: acrqrappdev.azurecr.io/qr-fastapi:v1 
+              ports: 
+              - containerPort : 8000
+              envFrom:
+              - secretRef:
+                   name: fastapi-secret

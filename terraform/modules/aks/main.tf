@@ -8,6 +8,9 @@ resource "azurerm_kubernetes_cluster" "main" {
     type = "SystemAssigned"
   }
 
+  oidc_issuer_enabled       = true
+  workload_identity_enabled = true
+
   # ── Default Node Pool ─────────────────────────────────────────────────────────
   # A node pool is a group of VMs that run your pods
   # You can have multiple node pools (e.g., one for CPU-heavy, one for GPU workloads)

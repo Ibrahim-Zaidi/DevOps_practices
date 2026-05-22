@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-client
+  labels:
+    app: nextjs-client
+    tier: frontend
+spec: 
+  replicas: 2
+  selector: 
+    matchLabels: 
+      app: nextjs-client
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: nextjs-client
+        tier : frontend
+    spec: 
+      containers:
+         - name: qr-client 
+           image: acrqrappdev.azurecr.io/qr-nextjs:v1       
+           ports: 
+             - containerPort: 3000
+           env:
+             - name: NEXT_PUBLIC_API_URL
+               valueFrom:
+                 configMapKeyRef:
+                   name: client-configmap
+                   key: NEXT_PUBLIC_API_URL
